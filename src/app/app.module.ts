@@ -29,6 +29,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { AccountDetailsComponent } from './user/account-details/account-details.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { UserdataService } from './userdata.service';
+import { TransactionsComponent } from './user/account-details/transactions/transactions.component';
+import {MatTableModule} from '@angular/material/table';
 
 const appRoutes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -51,7 +53,8 @@ const appRoutes = [
     UserComponent,
     SidenavComponent,
     ErrorPageComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ const appRoutes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule
   ],
   providers: [AuthService, AuthGuard, UserdataService],
   bootstrap: [AppComponent]

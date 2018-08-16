@@ -1,0 +1,43 @@
+
+<mat-card>
+    <div>
+        <mat-card-header>
+            <mat-card-title><h2>Account Details</h2></mat-card-title>
+          </mat-card-header>
+    </div>
+
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-3 col-xs-3">
+          <h5>Account Number</h5>
+          </div>
+          <div class="col-md-3 col-xs-3">
+            <h5>Name</h5>
+        </div>
+        <div class="col-md-3 col-xs-3">
+            <h5>Balance</h5>
+        </div>
+        <div class="col-md-3 col-xs-3">
+            <h5>Transactions</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-xs-3">
+            <p>{{accountnumber}}</p>
+            </div>
+            <div class="col-md-3 col-xs-3">
+              <p>{{name}}</p>
+          </div>
+          <div class="col-md-3 col-xs-3">
+              <p>{{accbalance}}</p>
+          </div>
+          <div class="col-md-3 col-xs-3">
+              <p>{{transactions}}</p>
+          </div>
+      </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Ok</button>
+  </mat-card-actions>
+</mat-card>

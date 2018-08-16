@@ -1,0 +1,23 @@
+<!-- 
+<mat-sidenav #sidenav mode="over">
+    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>    
+</mat-sidenav>
+ -->
+<mat-sidenav-container style="height: 100%;">
+    <mat-sidenav #sidenav [mode]="mode.value">
+        <p><button mat-button (click)="sidenav.toggle()">button</button></p>
+        <mat-list role="list">
+                <mat-list-item role="listitem">Item 1</mat-list-item>
+                <mat-list-item role="listitem"><a href="">shubham</a></mat-list-item>
+                <mat-list-item role="listitem">Item 3</mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    
+      <mat-sidenav-content>
+        <p><button mat-button (click)="sidenav.toggle()">button</button></p>
+        <div class="col-md-12">
+            <app-account-details></app-account-details>
+        </div>
+      </mat-sidenav-content>
+</mat-sidenav-container>
+ 
