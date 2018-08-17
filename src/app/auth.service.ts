@@ -10,6 +10,8 @@ interface RegisterResponse {
 @Injectable()
 export class AuthService {
 
+    url = 'http://localhost:4000';
+
     constructor(private http: HttpClient) {}
 
 
@@ -31,16 +33,16 @@ export class AuthService {
     }
 
     registerUser(firstname, lastname, username, password, email, accountnumber, dob, phonenumber) {
-
-        return this.http.post<RegisterResponse>('/api/register', {
-           firstname,
-           lastname,
-           username,
-           password,
-           email,
-           accountnumber,
-           dob,
-           phonenumber
-        });
+        const register = {
+            firstname: firstname,
+            lastname: lastname,
+            username: username,
+            password: password,
+            email: email,
+            accnumber: accountnumber,
+            dob: dob,
+            phonenumber: phonenumber
+        };
+        return this.http.post<RegisterResponse>(`${this.url}/register`, register);
     }
 }

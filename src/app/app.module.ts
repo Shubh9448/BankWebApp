@@ -29,8 +29,9 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { AccountDetailsComponent } from './user/account-details/account-details.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { UserdataService } from './userdata.service';
-import { TransactionsComponent } from './user/account-details/transactions/transactions.component';
+import { TransactionsComponent } from './user/transactions/transactions.component';
 import {MatTableModule} from '@angular/material/table';
+import { TransferComponent } from './user/transfer/transfer.component';
 
 const appRoutes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -39,6 +40,7 @@ const appRoutes = [
   ]
   },
   {path: 'register', component: RegisterComponent},
+  { path: 'user/transfer', component: TransferComponent },
   { path:  'user/:id', component : UserComponent },
   { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
   { path: '**', redirectTo: '/not-found' }
@@ -54,7 +56,8 @@ const appRoutes = [
     SidenavComponent,
     ErrorPageComponent,
     AccountDetailsComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    TransferComponent
   ],
   imports: [
     BrowserModule,

@@ -32,8 +32,8 @@ export class TransactionsComponent implements OnInit {
   ngOnInit() {
   }
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  // dataSource = ELEMENT_DATA;
 
 
 }

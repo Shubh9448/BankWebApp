@@ -7,8 +7,8 @@
     <mat-sidenav #sidenav [mode]="mode.value">
         <p><button mat-button (click)="sidenav.toggle()">button</button></p>
         <mat-list role="list">
-                <mat-list-item role="listitem">Item 1</mat-list-item>
-                <mat-list-item role="listitem"><a href="">shubham</a></mat-list-item>
+                <mat-list-item role="listitem"><a>Account Details</a></mat-list-item>
+                <mat-list-item role="listitem"><a routerLink="/user/transfer">Transfer</a></mat-list-item>
                 <mat-list-item role="listitem">Item 3</mat-list-item>
         </mat-list>
     </mat-sidenav>
@@ -17,6 +17,8 @@
         <p><button mat-button (click)="sidenav.toggle()">button</button></p>
         <div class="col-md-12">
             <app-account-details></app-account-details>
+            <app-transactions></app-transactions>
+            <app-transfer></app-transfer>
         </div>
       </mat-sidenav-content>
 </mat-sidenav-container>
