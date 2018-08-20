@@ -46,7 +46,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../../_services';
@@ -59,18 +59,21 @@ export class LoginComponent implements OnInit {
     submitted = false;
     returnUrl: string;
     currentUser: User;
+    color = 'primary';
+    mode = 'indeterminate';
+    value = 50;
+    response: string;
 
     constructor(
-        private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
         private alertService: AlertService) {}
 
     ngOnInit() {
-        this.loginForm = this.formBuilder.group({
-            username: ['', Validators.required],
-            password: ['', Validators.required]
+        this.loginForm = new FormGroup({
+            'username': new FormControl('', [Validators.required]),
+            'password':  new FormControl('', [Validators.required])
         });
 
         // reset login status
@@ -80,8 +83,6 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
-    // convenience getter for easy access to form fields
-    get f() { return this.loginForm.controls; }
 
     onSubmit() {
         this.submitted = true;
@@ -92,7 +93,7 @@ export class LoginComponent implements OnInit {
         }
 
         this.loading = true;
-        this.authenticationService.login(this.f.username.value, this.f.password.value)
+        this.authenticationService.login(this.loginForm.value.username, this.loginForm.value.password)
             .pipe(first())
             .subscribe(
                 data => {
@@ -101,6 +102,7 @@ export class LoginComponent implements OnInit {
                   this.router.navigate([`/${ this.currentUser.firstName}`]);
                 },
                 error => {
+                    this.response = error;
                     this.alertService.error(error);
                     this.loading = false;
                 });

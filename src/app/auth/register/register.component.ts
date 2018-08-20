@@ -5,7 +5,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService, UserService } from '../../_services';
@@ -99,15 +99,15 @@ export class RegisterComponent implements OnInit {
         private alertService: AlertService) { }
 
     ngOnInit() {
-        this.registerForm = this.formBuilder.group({
-            'firstName': ['', Validators.required],
-            'lastName': ['', Validators.required],
-            'username': ['', Validators.required],
-            'password': ['', [Validators.required, Validators.minLength(6)]],
-            'email': ['', Validators.required, Validators.email],
-            'accnumber': ['', Validators.required],
-            'dob': ['', Validators.required],
-            'phonenumber': ['', Validators.required, Validators.maxLength(10), Validators.minLength(10)]
+        this.registerForm = new FormGroup({
+            'firstName': new FormControl('', [Validators.required]),
+            'lastName':  new FormControl('', [Validators.required]),
+            'username': new FormControl('', [Validators.required]),
+            'password': new FormControl('', [Validators.required, Validators.minLength(6)]),
+            'email': new FormControl('', [Validators.required, Validators.email]),
+            'accnumber': new FormControl('', [Validators.required]),
+            'dob': new FormControl('', [Validators.required]),
+            'phonenumber': new FormControl('', [Validators.required, Validators.maxLength(10), Validators.minLength(10)])
         });
     }
 

@@ -32,6 +32,8 @@ import { UserdataService } from './userdata.service';
 import { TransactionsComponent } from './user/transactions/transactions.component';
 import {MatTableModule} from '@angular/material/table';
 import { TransferComponent } from './user/transfer/transfer.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 import { AlertComponent } from './_directives';
 import { AuthGuard } from './_guards';
@@ -93,7 +95,8 @@ const appRoutes = [
     MatNativeDateModule,
     MatListModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     AuthService,
