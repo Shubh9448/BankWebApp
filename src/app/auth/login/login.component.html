@@ -1,14 +1,26 @@
 <div class="login-form">
-        <form style="margin: 120px auto; background-color: ghostwhite;" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+   <mat-card>
+        <form style="margin: 120px auto; background-color: ghostwhite;" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div style="font-size: 30px;">   
                         <p style="text-align: center; color: lightslategrey;">login</p>
                 </div>
             <mat-form-field style="width: 100%;">
                     <input  formControlName="username" matInput placeholder="user name">
             </mat-form-field>
+            <mat-progress-spinner
+                class="example-margin"
+                [color]="color"
+                [mode]="mode"
+                [value]="value"
+                *ngIf="loading">
+             </mat-progress-spinner>
             <mat-form-field style="width: 100%;">
                     <input  formControlName="password" type="password" matInput placeholder="password">
             </mat-form-field>
+            <mat-hint></mat-hint>
+            <mat-error>
+                    {{response}}
+            </mat-error>
             <div >
                 <button 
                     style="background-color: lightslategray; color: white;" 
@@ -17,10 +29,11 @@
             </div>
             <br>
             <div class="clearfix">
-                <mat-checkbox formControlName="checkbox">Remember me</mat-checkbox>
+                <mat-checkbox >Remember me</mat-checkbox>
                 <a  class="pull-right" style="cursor: pointer;">Forgot Password?</a>
             </div>
         </form>
+    </mat-card>
         <div>
             <p class="text-center"><a routerLink="/register" style="cursor: pointer;">Haven't registered yet?</a></p>
         </div>

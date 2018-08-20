@@ -5,14 +5,13 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserdataService {
+  url = 'http://localhost:4000';
 
   constructor(private http: HttpClient) { }
 
 
-  getUserDetails(username, password) {
-    return this.http.post<any>(('/api/auth'), {
-        username,
-        password
-    });
+  getUserDetails(username: string) {
+    const uname = username;
+    return this.http.get<any>((`${this.url}/${uname}`));
 }
 }

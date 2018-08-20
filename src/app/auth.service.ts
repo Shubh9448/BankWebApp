@@ -32,7 +32,14 @@ export class AuthService {
         this.loggedIn = false;
     }
 
-    registerUser(firstname, lastname, username, password, email, accountnumber, dob, phonenumber) {
+    registerUser(firstname: string,
+                lastname: string,
+                username: string,
+                password: string,
+                email: string,
+                accountnumber: number,
+                dob: Date,
+                phonenumber: string) {
         const register = {
             firstname: firstname,
             lastname: lastname,

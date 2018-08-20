@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../_models';
 
 @Component({
   selector: 'app-account-details',
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountDetailsComponent implements OnInit {
 
-  accountnumber = '20172505052';
-  name = 'Shubham Patial';
-  accbalance = 20000;
-  transactions = 'transaction';
+  loggedInUser: User;
 
-  constructor() { }
+  // accountnumber = '20172505052';
+  // name = 'Shubham Patial';
+  // accbalance = 20000;
+  // transactions = 'transaction';
+
+  constructor() {
+    this.loggedInUser = JSON.parse(localStorage.getItem('currentUser'));
+   }
 
   ngOnInit() {
   }
