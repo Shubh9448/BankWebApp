@@ -33,6 +33,7 @@ import { TransactionsComponent } from './user/transactions/transactions.componen
 import {MatTableModule} from '@angular/material/table';
 import { TransferComponent } from './user/transfer/transfer.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 import { AlertComponent } from './_directives';
@@ -96,7 +97,8 @@ const appRoutes = [
     MatListModule,
     MatDividerModule,
     MatTableModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    FlexLayoutModule
   ],
   providers: [
     AuthService,
